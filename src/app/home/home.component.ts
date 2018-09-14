@@ -9,13 +9,13 @@ import { Post } from '../post';
 })
 export class HomeComponent implements OnInit {
 
-  posts: Array<Post>;
+  postdatas: Array<Post>;
 
   constructor(private _postService: PostService) { }
 
   ngOnInit() {
     this._postService.getPosts()
-      .subscribe(res=> this.posts = res);
+      .subscribe(res=> this.postdatas = res);
   }
 
 }

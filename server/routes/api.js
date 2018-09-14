@@ -15,11 +15,11 @@ mongoose.connect(db, function(err) {
 router.get('/posts', (req, res) => {
     console.log('Requesting posts');
     post.find({})
-        .exec(function(err, posts){
+        .exec(function(err, postdatas){
             if (err) {
                 console.log('Error getting the posts');
             } else{
-                res.json(posts);
+                res.json(postdatas);
             }
         });
 });
@@ -27,11 +27,11 @@ router.get('/posts', (req, res) => {
 router.get('/details/:id', (req, res) => {
     console.log('Requesting post');
     post.findById(req.params.id)
-        .exec(function(err, post){
+        .exec(function(err, postdata){
             if (err) {
                 console.log('Error getting the post');
             } else{
-                res.json(post);
+                res.json(postdata);
             }
         });
 });
